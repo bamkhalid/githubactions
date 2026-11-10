@@ -10,11 +10,11 @@ name: CI/CD Pipeline
 # - une pull request cible main
 # ============================================================
 on:
+  workflow_dispatch:
 #  push:
 #    branches: [ main ]
 #  pull_request:
 #    branches: [ main ]
-  workflow_dispatch:
 
 # ============================================================
 # JOBS (tâches)
@@ -35,7 +35,8 @@ jobs:
       #    (Cette action clone le dépôt dans le répertoire de
       #    travail du runner, ce qui rend les steps suivants 
       #    capables de lire et d’utiliser vos fichiers. 
-	 #    Sans cette action, le runner est vide)
+      #     
+      #    Sans cette action, le runner est vide)
       - name: Récupérer le code
         uses: actions/checkout@v4
 
