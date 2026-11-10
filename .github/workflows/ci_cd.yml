@@ -43,7 +43,7 @@ jobs:
       # 2. Installe Python 3.12 sur le runner
       #    avec le cache pip activé pour accélérer les prochaines exécutions
       - name: Installer Python
-         uses: actions/setup-python@v5
+        uses: actions/setup-python@v5
           with:
           python-version: '3.12'
           cache: 'pip'
