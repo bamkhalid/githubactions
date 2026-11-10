@@ -10,11 +10,10 @@ name: CI/CD Pipeline
 # - une pull request cible main
 # ============================================================
 on:
-  workflow_dispatch:
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 # ============================================================
 # JOBS (tâches)
@@ -27,7 +26,7 @@ jobs:
   # ----------------------------------------------------------
   test:
     # Runner : machine Ubuntu fournie par GitHub
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Étapes du job (exécutées séquentiellement)
     steps:
@@ -69,7 +68,7 @@ jobs:
   build:
     # "needs" crée une dépendance : build attend test
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # 1. Récupère le code (chaque job a son propre runner vierge)
